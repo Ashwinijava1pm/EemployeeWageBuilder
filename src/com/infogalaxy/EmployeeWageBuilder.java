@@ -1,5 +1,4 @@
 package com.infogalaxy;
-
 import java.util.Random;
 
 public class EmployeeWageBuilder {
@@ -21,21 +20,26 @@ public class EmployeeWageBuilder {
         }
         //UC-3-Employee Part Time Wage Calculation
         else if(employeeAttendance == 1) {
-            int emp_Type;
             System.out.println("Employee is Present:");
             employeeAttendance = r.nextInt()%2;
             System.out.println("Emp_Type="+employeeAttendance);
-            if(employeeAttendance == 1) {
-                total_wage = WAGE_PER_HOUR * FULL_TIME_DAY_HOUR;
-                System.out.println("Employe Full Time Wages=" + total_wage);
-            }
-            else if(employeeAttendance == 0){
-                total_wage = WAGE_PER_HOUR * PART_TIME_HOUR;
-                System.out.println("Employee Part Time Wage="+total_wage);
-            }
+            //UC-4-Employee Wage Calculation Using Switch Condition
+                switch (employeeAttendance){
+                case 0:
+                    System.out.println("Employee Work Part Time:");
+                    total_wage = WAGE_PER_HOUR * PART_TIME_HOUR;
 
-            
+                    break;
+                case 1:
+                    case -1:
+                        System.out.println("Employee Work Full Time:");
+                        total_wage = WAGE_PER_HOUR * FULL_TIME_DAY_HOUR;
+                    break;
+
+            }
+            System.out.println("Employee Wages="+total_wage);
         }
+
         else{
             System.out.println("Employ is Invalid:");
         }
